@@ -17,18 +17,11 @@ Levitate DSL 的 VSCode 扩展，提供语法高亮和语言服务器支持。
 ### 从 VSIX 安装
 
 ```bash
+# VS Code
 code --install-extension levitate-extension-1.0.0.vsix
+# VS Code Insiders
 code-insiders --install-extension levitate-extension-1.0.0.vsix
 ```
-
-### 从源码构建
-
-```bash
-pnpm install
-pnpm build
-```
-
-按 `F5` 启动 Extension Development Host 进行调试。
 
 ## 语法概览
 
@@ -44,49 +37,40 @@ check {env get enablePkg} pkgr zip make "^outputDir%" "./release.zip"
 
 ### 变量系统
 
-| 类型 | 声明 | 引用 |
-|------|------|------|
-| 局部变量 | `var name value` | `^name^` |
-| 环境变量 | `env set name value` | `%name%` |
-| 表达式 | — | `{method args}` |
+| 类型     | 声明                 | 引用            |
+| -------- | -------------------- | --------------- |
+| 局部变量 | `var name value`     | `^name^`        |
+| 环境变量 | `env set name value` | `%name%`        |
+| 表达式   | —                    | `{method args}` |
 
 ### 内置环境变量
 
-| 变量 | 说明 |
-|------|------|
-| `%project.src%` | 项目源目录 |
-| `%project.name%` | 项目名称 |
+| 变量               | 说明         |
+| ------------------ | ------------ |
+| `%project.src%`    | 项目源目录   |
+| `%project.name%`   | 项目名称     |
 | `%project.output%` | 项目输出目录 |
-| `%project.ver%` | 当前版本号 |
-| `%project.cache%` | 项目缓存目录 |
+| `%project.ver%`    | 当前版本号   |
+| `%project.cache%`  | 项目缓存目录 |
 
 ## 配置项
 
-| 设置 | 默认值 | 说明 |
-|------|--------|------|
-| `levitate.trace.server` | `off` | 语言服务器通信日志 |
-| `levitate.maxNumberOfProblems` | `100` | 最大诊断数量 |
-
-## 项目结构
-
-```
-Levitate/
-├── packages/
-│   ├── client/          # VSCode 扩展客户端
-│   ├── server/          # 语言服务器
-│   └── grammar/         # TextMate 语法 & 语言配置
-├── assets/              # 扩展图标
-├── dist/                # 构建产物
-├── esbuild.config.mts   # 构建配置
-├── test/fixtures/       # 测试用例
-├── biome.json           # Linter & 格式化配置
-├── package.nls.json     # 英文本地化
-└── package.nls.zh-cn.json # 中文本地化
-```
+| 设置                           | 默认值 | 说明               |
+| ------------------------------ | ------ | ------------------ |
+| `levitate.trace.server`        | `off`  | 语言服务器通信日志 |
+| `levitate.maxNumberOfProblems` | `100`  | 最大诊断数量       |
 
 ## 相关项目
 
 - [ShulkerRDK](https://github.com/LiPolymer/ShulkerRDK) — Levitate 的宿主项目
+
+## 贡献
+
+请参阅[贡献指南](CONTRIBUTING_ZH.md)了解如何参与贡献。
+
+## 行为准则
+
+本项目遵循[贡献者行为准则](CODE_OF_CONDUCT_ZH.md)。
 
 ## 致谢
 

@@ -17,18 +17,11 @@ VSCode extension for the Levitate DSL, providing syntax highlighting and languag
 ### From VSIX
 
 ```bash
+# VS Code
 code --install-extension levitate-extension-1.0.0.vsix
+# VS Code Insiders
 code-insiders --install-extension levitate-extension-1.0.0.vsix
 ```
-
-### Build from Source
-
-```bash
-pnpm install
-pnpm run build
-```
-
-Press `F5` to launch the Extension Development Host for debugging.
 
 ## Syntax Overview
 
@@ -44,49 +37,40 @@ check {env get enablePkg} pkgr zip make "^outputDir%" "./release.zip"
 
 ### Variable System
 
-| Type | Declaration | Reference |
-|------|-------------|-----------|
-| Local | `var name value` | `^name^` |
-| Environment | `env set name value` | `%name%` |
-| Expression | — | `{method args}` |
+| Type        | Declaration          | Reference       |
+| ----------- | -------------------- | --------------- |
+| Local       | `var name value`     | `^name^`        |
+| Environment | `env set name value` | `%name%`        |
+| Expression  | —                    | `{method args}` |
 
 ### Built-in Environment Variables
 
-| Variable | Description |
-|----------|-------------|
-| `%project.src%` | Project source directory |
-| `%project.name%` | Project name |
+| Variable           | Description              |
+| ------------------ | ------------------------ |
+| `%project.src%`    | Project source directory |
+| `%project.name%`   | Project name             |
 | `%project.output%` | Project output directory |
-| `%project.ver%` | Current version string |
-| `%project.cache%` | Project cache directory |
+| `%project.ver%`    | Current version string   |
+| `%project.cache%`  | Project cache directory  |
 
 ## Configuration
 
-| Setting | Default | Description |
-|---------|---------|-------------|
-| `levitate.trace.server` | `off` | Language server communication trace |
-| `levitate.maxNumberOfProblems` | `100` | Maximum number of diagnostics |
-
-## Project Structure
-
-```
-Levitate/
-├── packages/
-│   ├── client/          # VSCode extension client
-│   ├── server/          # Language server
-│   └── grammar/         # TextMate grammar & language config
-├── assets/              # Extension icons
-├── dist/                # Build output
-├── esbuild.config.mts   # Build configuration
-├── test/fixtures/       # Test fixtures
-├── biome.json           # Linter & formatter config
-├── package.nls.json     # English localization
-└── package.nls.zh-cn.json # Chinese localization
-```
+| Setting                        | Default | Description                         |
+| ------------------------------ | ------- | ----------------------------------- |
+| `levitate.trace.server`        | `off`   | Language server communication trace |
+| `levitate.maxNumberOfProblems` | `100`   | Maximum number of diagnostics       |
 
 ## Related Projects
 
 - [ShulkerRDK](https://github.com/LiPolymer/ShulkerRDK) — Host project for Levitate
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
+
+## Code of Conduct
+
+This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Acknowledgments
 

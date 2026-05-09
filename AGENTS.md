@@ -6,6 +6,8 @@ This file provides guidance to AI coding agents (GitHub Copilot, Claude Code, et
 
 Levitate Extension is a VS Code extension for the Levitate DSL (`.lvt` files). Levitate is a build/task scripting language used by ShulkerRDK. The extension provides syntax highlighting, autocompletion, hover docs, document symbols, and diagnostics. See [README.md](README.md) for feature details and installation.
 
+When making changes, prefer the smallest file set that owns the behavior. The server owns language intelligence, the client owns extension startup, and the grammar owns highlighting.
+
 ## Common Commands
 
 ```bash
@@ -19,6 +21,7 @@ pnpm run package          # Build + create .vsix
 
 - Press **F5** in VS Code to launch the Extension Development Host for debugging.
 - Git hooks via husky + lint-staged (auto-format on commit).
+- There is no dedicated test script in package.json; use `pnpm run build` and `pnpm run lint` as the default validation steps.
 
 ## Architecture
 
@@ -31,6 +34,14 @@ pnpm monorepo with three packages under `packages/`:
 Both client and server are bundled via `esbuild.config.mts` into `dist/` (CommonJS, Node 18 target). The `vscode` module is externalized for the client but bundled for the server.
 
 TypeScript config in `tsconfig.base.json`: strict mode, ES2022 target, Node16 module resolution.
+
+Start here for common changes:
+
+- Language behavior and command metadata: `packages/server/src/languageData.ts`
+- Diagnostics/completion/hover/symbols: `packages/server/src/diagnostics.ts`, `completion.ts`, `hover.ts`, `symbols.ts`
+- Parser behavior: `packages/server/src/parser.ts`
+- Extension activation and LSP launch: `packages/client/src/extension.ts`
+- Build bundling: `esbuild.config.mts`
 
 ## Language Server Internals
 
@@ -46,6 +57,7 @@ TypeScript config in `tsconfig.base.json`: strict mode, ES2022 target, Node16 mo
 1. Add entry to `KEYWORD_DEFS` in `packages/server/src/languageData.ts` (name, category, subcommands)
 2. Add locale strings in both `packages/server/src/locales/en.json` and `zh-cn.json`
 3. Optionally update TextMate grammar in `packages/grammar/syntaxes/lvt.tmLanguage.json` for highlighting
+4. Update `README.md` and `README_ZH.md` only if the user-facing behavior changed; otherwise keep docs unchanged.
 
 ### Locale / i18n
 
