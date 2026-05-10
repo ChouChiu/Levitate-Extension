@@ -74,4 +74,4 @@ This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 
 ## Acknowledgments
 
-Thanks to [LiPolymer](https://github.com/LiPolymer), the author of [ShulkerRDK](https://github.com/LiPolymer/ShulkerRDK) and [icon](assets/icon.svg)
+Thanks to [LiPolymer](https://github.com/LiPolymer), the author of [ShulkerRDK](https://github.com/LiPolymer/ShulkerRDK) and [icon](../assets/icon.svg)

@@ -74,4 +74,4 @@ check {env get enablePkg} pkgr zip make "^outputDir%" "./release.zip"
 
 ## 致谢
 
-感谢 [ShulkerRDK](https://github.com/LiPolymer/ShulkerRDK) 以及 [图标](assets/icon.svg) 的作者 [LiPolymer](https://github.com/LiPolymer)
+感谢 [ShulkerRDK](https://github.com/LiPolymer/ShulkerRDK) 以及 [图标](../assets/icon.svg) 的作者 [LiPolymer](https://github.com/LiPolymer)
