@@ -3,7 +3,7 @@
 	"displayName": "Levitate-Extension",
 	"description": "Syntax highlighting and language support for the Levitate DSL",
 	"icon": "assets/icon.png",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "ChouChiu",
 	"repository": {
 		"type": "git",
